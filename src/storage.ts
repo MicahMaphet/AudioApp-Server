@@ -24,7 +24,7 @@ class Tails {
     collection: Collection;
 
     constructor(db: Db) {
-        this.collection = db.collection('Tails');
+        this.collection = db.collection('tails');
     }
 
     async add<T extends { name: string }>({ name }: T): Promise<void> {
@@ -33,13 +33,13 @@ class Tails {
 
     async get() {
         try {
-            const documents = await this.collection.find({}).toArray();
+            const documents = await this.collection.find().toArray();
+            console.log(documents);
             return documents;
-          } catch (error) {
-            console.error(`Error fetching documents from Tails:`, error);
+        } catch (error) {
+            console.error(`Error fetching documents from tails:`, error);
             throw error;
-          }
-      
+        }
     }
 }
 

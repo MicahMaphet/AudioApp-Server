@@ -1,1 +1,1 @@
-GET http://localhost:3000/audio
+GET http://localhost:3000/tails
