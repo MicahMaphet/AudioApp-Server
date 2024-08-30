@@ -33,7 +33,7 @@ class Tails {
 
     async get() {
         try {
-            const documents = await this.collection.find().toArray();
+            const documents = await this.collection.find({}, { projection: { _id: 0 }}).toArray();
             console.log(documents);
             return documents;
         } catch (error) {
