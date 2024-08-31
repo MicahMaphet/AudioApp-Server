@@ -27,8 +27,8 @@ class Tails {
         this.collection = db.collection('tails');
     }
 
-    async add<T extends { name: string }>({ name }: T): Promise<void> {
-        await this.collection.insertOne({ name: name });
+    async add<T extends { title: string }>({ title }: T): Promise<void> {
+        await this.collection.insertOne({ title: title });
     }
 
     async get() {
