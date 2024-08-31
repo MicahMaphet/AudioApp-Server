@@ -20,6 +20,12 @@ class StorageService {
     }
 }
 
+type TailType = {
+    title: string,
+    image?: string,
+    audio?: string
+}
+
 class Tails {
     collection: Collection;
 
@@ -27,8 +33,8 @@ class Tails {
         this.collection = db.collection('tails');
     }
 
-    async add<T extends { title: string, image?: string }> ({ title, image }: T): Promise<void> {
-        await this.collection.insertOne({ title: title, image: image });
+    async add({ title, image, audio }: TailType): Promise<void> {
+        await this.collection.insertOne({ title: title, image: image, audio: audio });
     }
 
     async get() {
