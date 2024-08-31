@@ -41,6 +41,10 @@ class Tails {
             throw error;
         }
     }
+
+    async drop() {
+        await this.collection.drop();
+    }
 }
 
 
