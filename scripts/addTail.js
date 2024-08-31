@@ -27,10 +27,10 @@ if (!title) usage();
 
 storage.init()
     .then(async() => {
-        await storage.tails.add({title});
+        await storage.tails.add({title, image});
     })
     .catch(console.error)
     .finally(() => {
-        console.log(`Inserted "${title}" into tails`);
+        console.log(`Inserted "${title}" into tails\nimage: ${image}`);
         storage.stop();
     });
