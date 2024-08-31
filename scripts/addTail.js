@@ -13,8 +13,17 @@ function usage(err) {
     process.exit();
 }
 
-const title = args.find(a => a == '--title') ? args[args.indexOf('--title') + 1] : undefined;
-const image = args.find(a => a == '--image') ? args[args.indexOf('--image') + 1] : undefined;
+let title = args.find(a => a == '--title') ? args[args.indexOf('--title') + 1] : undefined;
+let image = args.find(a => a == '--image') ? args[args.indexOf('--image') + 1] : undefined;
+
+if (!title && !image) {
+    if (args.length >= 1) {
+        title = args[0];
+    }
+    if (args.length == 2) {
+        image = args[1];
+    }
+}
 
 if (args.includes('--help') || args.includes('-h')) {
     usage();
