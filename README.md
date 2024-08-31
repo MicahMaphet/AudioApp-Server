@@ -1,7 +1,7 @@
 # AudioApp-Server
 Server side for [AudioApp](http://github.com/MicahMaphet/AudioApp).
 Handles mongodb drivers and logic for data requests.
-Contains [scripts](./scripts/README.md) for adding to the database.
+Contains [scripts](./scripts) for adding to the database.
 
 ## Getting Started
 ### Requrements
