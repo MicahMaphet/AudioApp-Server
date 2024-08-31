@@ -27,8 +27,8 @@ class Tails {
         this.collection = db.collection('tails');
     }
 
-    async add<T extends { name: string }>({ name }: T): Promise<void> {
-        await this.collection.insertOne({ name: name });
+    async add<T extends { title: string, image?: string }> ({ title, image }: T): Promise<void> {
+        await this.collection.insertOne({ title: title, image: image });
     }
 
     async get() {
@@ -40,6 +40,10 @@ class Tails {
             console.error(`Error fetching documents from tails:`, error);
             throw error;
         }
+    }
+
+    async drop() {
+        await this.collection.drop();
     }
 }
 
