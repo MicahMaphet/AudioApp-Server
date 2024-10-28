@@ -22,3 +22,7 @@ Start Server
 ```
 npm start
 ```
+
+## Add to server
+No items will be in the database until you add them. <br>
+Add items to mongodb using [scripts](scripts/README.md).
