@@ -1,4 +1,3 @@
-import { AutoTokenizer, AutoModelForCausalLM, PreTrainedModel, PreTrainedTokenizer } from '@huggingface/transformers';
 import { exec } from 'child_process';
 import path from 'path';
 
