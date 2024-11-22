@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors'; 
 import storage from './storage'
 import path from 'path';
-import models from './models'
+import models from './model'
 
 const port = 3000;
 const app = express();
