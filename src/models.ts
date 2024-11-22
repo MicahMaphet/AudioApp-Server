@@ -2,9 +2,9 @@ import { AutoTokenizer, AutoModelForCausalLM, PreTrainedModel, PreTrainedTokeniz
 import { exec } from 'child_process';
 import path from 'path';
 
-function generate(): Promise<string> {
+function generate(prompt: string): Promise<string> {
     return new Promise((resolve, reject) => {
-        exec('python ' + path.join(__dirname, '../LLMs/model.py'), (error: Error | null, stdout: string,
+        exec('python ' + path.join(__dirname, '../LLMs/model.py') + ` '${prompt}'`, (error: Error | null, stdout: string,
             stderr: string) => {
                 if (error) {
                     console.error(`Error: ${error.message}`);
@@ -20,7 +20,7 @@ function generate(): Promise<string> {
 }
 
 async function main() {
-    console.log(await generate())
+    console.log(await generate('Hello there, '))
 }
 
 main();
