@@ -20,5 +20,7 @@ app.get('/api', async (req, res) => {
     res.send(response);
 });
 
+model.load() // download model if needed
+
 console.log(`Listening on port ${port}\n`);
 app.listen(port);
