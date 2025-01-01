@@ -48,6 +48,16 @@ class Tails {
         }
     }
 
+    async search(keywords: string) {
+        try {
+            const documents = await this.collection.find({$text: {$search: keywords}}, { projection: { _id: 0}}).toArray();
+            return documents;
+        } catch (error) {
+            console.error(`Error fetching documents from tails:`, error);
+            throw error;
+        }
+    }
+
     async drop() {
         await this.collection.drop();
     }

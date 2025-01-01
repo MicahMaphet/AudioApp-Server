@@ -20,6 +20,12 @@ app.get('/api', async (req, res) => {
     res.send(response);
 });
 
+app.get('/api/search', async (req, res) => {
+    const keywords = req.query.keywords as string;
+    const response = await storage.tails.search(keywords);
+    res.send(response);
+});
+
 model.load() // download model if needed
 
 console.log(`Listening on port ${port}\n`);
