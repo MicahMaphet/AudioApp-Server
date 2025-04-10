@@ -3,8 +3,10 @@ import cors from 'cors';
 import storage from './storage'
 import path from 'path';
 import model from './model'
+import { parseArgs } from 'util';
 
-const port = 3000;
+let args = process.argv.slice(2);
+const port = args.length > 0 ? args[0] : 3000;
 const app = express();
 
 app.use(cors());
