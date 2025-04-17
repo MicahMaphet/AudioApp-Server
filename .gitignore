@@ -1,5 +1,4 @@
 build
 node_modules
-public/images
-public/audio
+public
 LLM
