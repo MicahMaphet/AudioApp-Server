@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors'; 
 import storage from './storage'
 import path from 'path';
-import model from './model'
+import ai from './ai'
 
 const port = 3000;
 const app = express();
@@ -16,11 +16,11 @@ app.get('/tails', async (req, res) => {
 
 app.get('/api', async (req, res) => {
     const prompt = req.query.prompt as string;
-    const response = await model.generate(prompt);
+    const response = await ai.generateText(prompt);
     res.send(response);
 });
 
-model.load() // download model if needed
+ai.load() // download model if needed
 
 console.log(`Listening on port ${port}\n`);
 app.listen(port);

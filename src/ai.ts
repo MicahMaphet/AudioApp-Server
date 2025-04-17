@@ -4,10 +4,11 @@ import path from 'path';
 /**
  * Typescript interface for the language models run in python
  */
-class ModelService {
+class AIService {
+    textGeneratorDirectory: string = path.join(__dirname, '../AI/text_gen.py');
     /** Load the language model and download if needed. */
     load() {
-        exec('python ' + path.join(__dirname, '../LLMs/model.py'));
+        exec('python ' + this.textGeneratorDirectory);
     }
     
     /**
@@ -17,9 +18,9 @@ class ModelService {
      * @param prompt starting text
      * @returns prompt + model output
      */
-    generate(prompt: string): Promise<string> {
+    generateText(prompt: string): Promise<string> {
         return new Promise((resolve, reject) => {
-            exec('python ' + path.join(__dirname, '../LLMs/model.py') + ` '${prompt}'`, (error: Error | null, stdout: string) => {
+            exec('python ' + this.textGeneratorDirectory + ` '${prompt}'`, (error: Error | null, stdout: string) => {
                     if (error) {
                         console.error(`Error: ${error.message}`);
                         return;
@@ -31,4 +32,4 @@ class ModelService {
     }
 }
 
-export default new ModelService();
+export default new AIService();
